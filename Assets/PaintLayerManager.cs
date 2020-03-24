@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 namespace ATH
 {
-
-    public class PainLayerManager : MonoBehaviour
+    public class PaintLayerManager : MonoBehaviour
     {
         [SerializeField] private Vector2 layerCreartionSize;
         private List<PaintLayer> paintLayers = new List<PaintLayer>();
@@ -32,7 +31,7 @@ namespace ATH
             rectTransform.sizeDelta = new Vector2(layerCreartionSize.x, layerCreartionSize.y);
             go.transform.SetParent(transform);
             PaintLayer paintLayer = new PaintLayer(texture2D, go.GetComponent<RawImage>());
-            paintLayer.SetColor(new Color(0, 0, 0, 0));
+            paintLayer.SetColor(new Color(0, 0, 0, 1));
             paintLayers.Add(paintLayer);
         }
     }
