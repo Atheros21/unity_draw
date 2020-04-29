@@ -29,7 +29,14 @@ namespace ATH
 
         public void PaintPixel(int i, int j, Color targetColor)
         {
+            i = Mathf.Clamp(i,0, texture.height);
+            j = Mathf.Clamp(j,0, texture.width);
             texture.SetPixel(i, j, targetColor);
+        }
+
+        public void ApplyChanges()
+        {
+            texture.Apply();
         }
 
         public void IncreasePriority()
@@ -41,6 +48,11 @@ namespace ATH
         {
             int currentOrder = rawImage.transform.GetSiblingIndex();
             rawImage.transform.SetSiblingIndex(currentOrder>1?currentOrder-1:0);
+        }
+
+        public Texture2D GetTexture()
+        {
+            return texture;
         }
     }
 }
